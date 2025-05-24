@@ -1,0 +1,107 @@
+* {
+    border: none;
+    outline: none;
+}
+
+QMainWindow {
+    background-color: #282D35;
+    color: #EEEEEE;
+}
+
+QListWidget {
+    background-color: #32363D;
+    color: #EEEEEE;
+    border: none;
+}
+
+QToolBar {
+    background-color: #32363D;
+    border: none;
+    spacing: 0px;
+    padding: 0px;
+}
+
+QPushButton, QToolButton {
+    background-color: transparent;
+    color: #EEEEEE;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 2px;
+    font-size: 20px;
+}
+
+QPushButton:hover, QToolButton:hover {
+    background-color: #424750;
+    color: #FD7014;
+}
+
+QPushButton:pressed, QToolButton:pressed {
+    background-color: #FD7014;
+    color: #282D35;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    background-color: #32363D;
+    width: 10px;
+    margin: 0px;
+    border: none;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background-color: #FD7014;
+    min-height: 20px;
+    border-radius: 4px;
+}
+
+QScrollBar::add-line, QScrollBar::sub-line,
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+    border: none;
+}
+
+QDockWidget {
+    background-color: #32363D;
+    color: #EEEEEE;
+    border: none;
+}
+
+QDockWidget::title {
+    background-color: #32363D;
+    color: #EEEEEE;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #424750;
+}
+
+QGraphicsView {
+    background-color: #282D35;
+    border: none;
+}
+
+QToolBar::separator {
+    background-color: #424750;
+    width: 1px;
+    height: 1px;
+    margin: 5px 8px;
+}
+
+QListWidget#browserContent {
+    border: none;
+}
+
+QListWidget::item {
+    padding: 5px 10px;
+    color: #EEEEEE;
+    border-radius: 2px;
+}
+
+QListWidget::item:hover {
+    background-color: #424750;
+}
+
+QListWidget::item:selected {
+    background-color: #FD7014;
+    color: #282D35;
+}
+
