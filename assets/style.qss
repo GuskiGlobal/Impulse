@@ -1,19 +1,23 @@
+
 * {
     border: none;
     outline: none;
 }
 
+/* === JANELA PRINCIPAL === */
 QMainWindow {
     background-color: #282D35;
     color: #EEEEEE;
 }
 
+/* === LISTAS (Browser, etc) === */
 QListWidget {
     background-color: #32363D;
     color: #EEEEEE;
     border: none;
 }
 
+/* === BARRA DE FERRAMENTAS === */
 QToolBar {
     background-color: #32363D;
     border: none;
@@ -21,6 +25,14 @@ QToolBar {
     padding: 0px;
 }
 
+QToolBar::separator {
+    background-color: #424750;
+    width: 1px;
+    height: 1px;
+    margin: 5px 8px;
+}
+
+/* === BOTÕES === */
 QPushButton, QToolButton {
     background-color: transparent;
     color: #EEEEEE;
@@ -40,6 +52,7 @@ QPushButton:pressed, QToolButton:pressed {
     color: #282D35;
 }
 
+/* === SCROLLBAR === */
 QScrollBar:vertical, QScrollBar:horizontal {
     background-color: #32363D;
     width: 10px;
@@ -59,6 +72,7 @@ QScrollBar::add-page, QScrollBar::sub-page {
     border: none;
 }
 
+/* === DOCK WIDGETS === */
 QDockWidget {
     background-color: #32363D;
     color: #EEEEEE;
@@ -74,18 +88,13 @@ QDockWidget::title {
     border-bottom: 1px solid #424750;
 }
 
+/* === QGRAPHICSVIEW (Timeline) === */
 QGraphicsView {
     background-color: #282D35;
     border: none;
 }
 
-QToolBar::separator {
-    background-color: #424750;
-    width: 1px;
-    height: 1px;
-    margin: 5px 8px;
-}
-
+/* === BROWSER LISTA INTERNA === */
 QListWidget#browserContent {
     border: none;
 }
@@ -103,5 +112,39 @@ QListWidget::item:hover {
 QListWidget::item:selected {
     background-color: #FD7014;
     color: #282D35;
+}
+
+/* === TABS DO BROWSER === */
+QTabWidget#browserTabWidget::pane {
+    border: 1px solid #424750;
+    background-color: #32363D;
+    margin-top: -1px;
+}
+
+QTabWidget#browserTabWidget::tab-bar {
+    alignment: left;
+}
+
+QTabWidget#browserTabWidget QTabBar::tab {
+    background-color: #32363D;
+    color: #EEEEEE;
+    padding: 8px 15px;
+    border: 1px solid #32363D;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-right: 1px;
+}
+
+QTabWidget#browserTabWidget QTabBar::tab:selected {
+    background-color: #282D35;
+    color: #FD7014;
+    border: 1px solid #424750;
+    border-bottom-color: #282D35;
+    font-weight: bold;
+}
+
+QTabWidget#browserTabWidget QTabBar::tab:hover {
+    background-color: #3A3F47;
 }
 

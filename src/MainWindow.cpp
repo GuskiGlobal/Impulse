@@ -2,6 +2,7 @@
 #include "MainWindow.h"
 #include "gui/ActionBar.h"
 #include "gui/MultiRack.h"
+#include "gui/panels/BrowserPanel.h"
 #include <QGraphicsScene>
 #include <QListWidget>
 #include <QDockWidget>
@@ -35,9 +36,8 @@ void MainWindow::setupUI() {
 
     // === Browser ===
     browserDock = new QDockWidget("Browser", this);
-    QListWidget *browserContent = new QListWidget();
-    browserContent->addItems({"Plugin 1", "Sample 1.wav", "Reverb.fx"});
-    browserDock->setWidget(browserContent);
+    BrowserPanel *browserPanel = new BrowserPanel(this);
+    browserDock->setWidget(browserPanel);
     browserDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetClosable);
     addDockWidget(Qt::LeftDockWidgetArea, browserDock);
 
