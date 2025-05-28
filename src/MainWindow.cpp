@@ -3,6 +3,8 @@
 #include "gui/ActionBar.h"
 #include "gui/MultiRack.h"
 #include "gui/panels/BrowserPanel.h"
+#include "gui/panels/TrackView.h"
+
 #include <QGraphicsScene>
 #include <QListWidget>
 #include <QDockWidget>
@@ -17,11 +19,8 @@ MainWindow::~MainWindow() {}
 
 void MainWindow::setupUI() {
     // === Timeline central ===
-    timelineView = new QGraphicsView(this);
-    QGraphicsScene *scene = new QGraphicsScene(this);
-    scene->setSceneRect(0, 0, 2000, 800);
-    timelineView->setScene(scene);
-    setCentralWidget(timelineView);
+    trackView = new TrackView(this);
+    setCentralWidget(trackView);
 
     // === ActionBar ===
     actionBar = new ActionBar(this);
@@ -36,7 +35,7 @@ void MainWindow::setupUI() {
 
     // === Browser ===
     browserDock = new QDockWidget("Browser", this);
-    BrowserPanel *browserPanel = new BrowserPanel(this);
+    browserPanel = new BrowserPanel(this);
     browserDock->setWidget(browserPanel);
     browserDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetClosable);
     addDockWidget(Qt::LeftDockWidgetArea, browserDock);

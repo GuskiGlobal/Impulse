@@ -22,16 +22,25 @@ file(GLOB_RECURSE GUI_SOURCES "src/gui/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS "include/gui/*.h")
 file(GLOB_RECURSE GUI_SOURCES_PANELS "src/gui/panels/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_PANELS "include/gui/panels/*.h")
+file(GLOB_RECURSE GUI_SOURCES_TRACKS "src/gui/tracks/*.cpp")
+file(GLOB_RECURSE GUI_HEADERS_TRACKS "include/gui/tracks/*.h")
+
 
 # Adiciona todos os arquivos às listas finais
-list(APPEND SOURCES ${GUI_SOURCES} ${GUI_SOURCES_PANELS})
-list(APPEND HEADERS ${GUI_HEADERS} ${GUI_HEADERS_PANELS})
+list(APPEND SOURCES ${GUI_SOURCES} ${GUI_SOURCES_PANELS} ${GUI_SOURCES_TRACKS})
+list(APPEND HEADERS ${GUI_HEADERS} ${GUI_HEADERS_PANELS} ${GUI_HEADERS_TRACKS})
 
 # Copia a pasta assets para o diretório de build
-file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
+add_custom_target(copy_assets ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/assets
+    ${CMAKE_BINARY_DIR}/assets
+)
 
 # Executável principal
 add_executable(Impulse ${SOURCES} ${HEADERS})
+
+add_dependencies(Impulse copy_assets)
 
 # Linka com o Qt
 target_link_libraries(Impulse Qt6::Widgets)

@@ -1,10 +1,14 @@
 #ifndef TRACKVIEW_H
 #define TRACKVIEW_H
 
-#include <QGraphicsView>
-#include <QGraphicsScene>
+#include <QWidget>
+#include <QVBoxLayout>
+#include "gui/tracks/EmptyTrack.h"
 
-class TrackView : public QGraphicsView
+class QVBoxLayout;
+class EmptyTrack;
+
+class TrackView : public QWidget
 {
     Q_OBJECT
 
@@ -12,8 +16,7 @@ public:
     explicit TrackView(QWidget *parent = nullptr);
 
 private:
-    QGraphicsScene *scene;
-    void createDummyTracks();
+    QVBoxLayout *mainLayout;
 };
 
 #endif // TRACKVIEW_H

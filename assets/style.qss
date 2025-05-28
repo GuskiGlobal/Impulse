@@ -1,41 +1,53 @@
-
 * {
     border: none;
     outline: none;
+    padding: 0px;
+    margin: 0px;
 }
 
-/* === JANELA PRINCIPAL === */
 QMainWindow {
-    background-color: #282D35;
-    color: #EEEEEE;
+    background-color: #1d1f21;
+    color: #c5c8c6;
 }
 
-/* === LISTAS (Browser, etc) === */
 QListWidget {
-    background-color: #32363D;
-    color: #EEEEEE;
+    background-color: #282a2e;
+    color: #c5c8c6;
     border: none;
 }
 
-/* === BARRA DE FERRAMENTAS === */
+QListWidget::item {
+    padding: 5px 10px;
+    color: #c5c8c6;
+    border-radius: 2px;
+}
+
+QListWidget::item:hover {
+    background-color: #373b41;
+}
+
+QListWidget::item:selected {
+    background-color: #8c9440;
+    color: #1d1f21;
+}
+
 QToolBar {
-    background-color: #32363D;
+    background-color: #282a2e;
     border: none;
     spacing: 0px;
     padding: 0px;
 }
 
 QToolBar::separator {
-    background-color: #424750;
+    background-color: #373b41;
     width: 1px;
     height: 1px;
     margin: 5px 8px;
 }
 
-/* === BOTÕES === */
 QPushButton, QToolButton {
     background-color: transparent;
-    color: #EEEEEE;
+    color: #c5c8c6;
     border: none;
     padding: 10px 12px;
     border-radius: 2px;
@@ -43,25 +55,24 @@ QPushButton, QToolButton {
 }
 
 QPushButton:hover, QToolButton:hover {
-    background-color: #424750;
-    color: #FD7014;
+    background-color: #373b41;
+    color: #f0c674;
 }
 
 QPushButton:pressed, QToolButton:pressed {
-    background-color: #FD7014;
-    color: #282D35;
+    background-color: #f0c674;
+    color: #1d1f21;
 }
 
-/* === SCROLLBAR === */
 QScrollBar:vertical, QScrollBar:horizontal {
-    background-color: #32363D;
+    background-color: #282a2e;
     width: 10px;
     margin: 0px;
     border: none;
 }
 
 QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
-    background-color: #FD7014;
+    background-color: #de935f;
     min-height: 20px;
     border-radius: 4px;
 }
@@ -72,52 +83,29 @@ QScrollBar::add-page, QScrollBar::sub-page {
     border: none;
 }
 
-/* === DOCK WIDGETS === */
 QDockWidget {
-    background-color: #32363D;
-    color: #EEEEEE;
+    background-color: #282a2e;
+    color: #c5c8c6;
     border: none;
 }
 
 QDockWidget::title {
-    background-color: #32363D;
-    color: #EEEEEE;
+    background-color: #282a2e;
+    color: #c5c8c6;
     padding: 8px 10px;
     text-align: left;
     font-weight: bold;
-    border-bottom: 1px solid #424750;
+    border-bottom: 1px solid #373b41;
 }
 
-/* === QGRAPHICSVIEW (Timeline) === */
 QGraphicsView {
-    background-color: #282D35;
+    background-color: #1d1f21;
     border: none;
 }
 
-/* === BROWSER LISTA INTERNA === */
-QListWidget#browserContent {
-    border: none;
-}
-
-QListWidget::item {
-    padding: 5px 10px;
-    color: #EEEEEE;
-    border-radius: 2px;
-}
-
-QListWidget::item:hover {
-    background-color: #424750;
-}
-
-QListWidget::item:selected {
-    background-color: #FD7014;
-    color: #282D35;
-}
-
-/* === TABS DO BROWSER === */
 QTabWidget#browserTabWidget::pane {
-    border: 1px solid #424750;
-    background-color: #32363D;
+    border: 1px solid #373b41;
+    background-color: #282a2e;
     margin-top: -1px;
 }
 
@@ -126,10 +114,10 @@ QTabWidget#browserTabWidget::tab-bar {
 }
 
 QTabWidget#browserTabWidget QTabBar::tab {
-    background-color: #32363D;
-    color: #EEEEEE;
+    background-color: #282a2e;
+    color: #c5c8c6;
     padding: 8px 15px;
-    border: 1px solid #32363D;
+    border: 1px solid #282a2e;
     border-bottom: none;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -137,14 +125,136 @@ QTabWidget#browserTabWidget QTabBar::tab {
 }
 
 QTabWidget#browserTabWidget QTabBar::tab:selected {
-    background-color: #282D35;
-    color: #FD7014;
-    border: 1px solid #424750;
-    border-bottom-color: #282D35;
+    background-color: #1d1f21;
+    color: #f0c674;
+    border: 1px solid #373b41;
+    border-bottom-color: #1d1f21;
     font-weight: bold;
 }
 
 QTabWidget#browserTabWidget QTabBar::tab:hover {
-    background-color: #3A3F47;
+    background-color: #373b41;
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid #373b41;
+    height: 8px;
+    background: #282a2e;
+    margin: 2px 0;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: #b5bd68;
+    border: 1px solid #b5bd68;
+    width: 18px;
+    height: 18px;
+    margin: -5px 0;
+    border-radius: 9px;
+}
+
+QSlider::add-page:horizontal {
+    background: #282a2e;
+}
+
+QSlider::sub-page:horizontal {
+    background: #b5bd68;
+}
+
+QComboBox {
+    border: 1px solid #373b41;
+    border-radius: 4px;
+    padding: 1px 18px 1px 3px;
+    min-width: 6em;
+    background-color: #282a2e; 
+    color: #c5c8c6;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left-width: 1px;
+    border-left-color: #373b41;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid #373b41;
+    selection-background-color: #b5bd68;
+    background-color: #282a2e;
+    color: #c5c8c6;
+}
+
+QWidget#trackTimelineArea {
+    background-color: #373b41;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+QWidget#trackTimelineArea QLabel {
+    color: #c5c8c6;
+    background-color: transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+EmptyTrack {
+    background-color: #373b41;
+    border: none;
+    border-bottom: 1px solid #373b41;
+    padding: 0px;
+    margin: 0px;
+}
+
+TrackControl {
+    background-color: #282a2e;
+    border-left: 1px solid #373b41;
+    padding: 4px;
+    margin: 0px;
+}
+
+QPushButton#muteButton {
+    background-color: #282a2e;
+}
+QPushButton#muteButton:checked {
+    background-color: #f0c674;
+    color: #1d1f21;
+}
+
+QPushButton#soloButton {
+    background-color: #282a2e;
+}
+QPushButton#soloButton:checked {
+    background-color: #b5bd68;
+    color: #1d1f21;
+}
+
+QPushButton#recordButton {
+    background-color: #282a2e;
+}
+QPushButton#recordButton:checked {
+    background-color: #a54242;
+    color: #ffffff;
+}
+
+QLabel#trackDragBar {
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    border-left: 1px solid #373b41;
+}
+
+QLineEdit#trackNameEdit {
+    background-color: #2b2e30;
+    color: #ffffff;
+    border: 1px solid #444;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 12px;
 }
 

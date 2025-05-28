@@ -1,4 +1,3 @@
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -9,6 +8,8 @@
 
 class ActionBar;
 class MultiRack;
+class BrowserPanel;
+class TrackView;
 
 class MainWindow : public QMainWindow
 {
@@ -25,6 +26,8 @@ private:
 
     ActionBar     *actionBar;
     MultiRack     *multiRack;
+    BrowserPanel   *browserPanel;
+    TrackView     *trackView;
 
     void setupUI();
 };
