@@ -4,6 +4,10 @@
 #include <QTabWidget>
 #include <QWidget>
 #include <QListWidget>
+#include <QVBoxLayout>
+#include <QLayout>
+#include "gui/browser/FileBrowserWidget.h"
+
 
 class BrowserPanel : public QWidget
 {

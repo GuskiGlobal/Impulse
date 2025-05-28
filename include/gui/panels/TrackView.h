@@ -2,21 +2,24 @@
 #define TRACKVIEW_H
 
 #include <QWidget>
-#include <QVBoxLayout>
-#include "gui/tracks/EmptyTrack.h"
 
 class QVBoxLayout;
-class EmptyTrack;
+class QScrollArea;
 
-class TrackView : public QWidget
-{
+class TrackView : public QWidget {
     Q_OBJECT
 
 public:
     explicit TrackView(QWidget *parent = nullptr);
 
+private slots:
+    void addTrack();
+
 private:
     QVBoxLayout *mainLayout;
+    QVBoxLayout *trackLayout;
+    QScrollArea *scrollArea;
+    QWidget *trackContainer;
 };
 
 #endif // TRACKVIEW_H

@@ -24,11 +24,27 @@ file(GLOB_RECURSE GUI_SOURCES_PANELS "src/gui/panels/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_PANELS "include/gui/panels/*.h")
 file(GLOB_RECURSE GUI_SOURCES_TRACKS "src/gui/tracks/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_TRACKS "include/gui/tracks/*.h")
-
+file(GLOB_RECURSE CORE_SOURCES_TRACKS "src/core/tracks/*.cpp")
+file(GLOB_RECURSE CORE_HEADERS_TRACKS "include/core/tracks/*.h")
+file(GLOB_RECURSE GUI_SOURCES_BROWSER "src/gui/browser/*.cpp")
+file(GLOB_RECURSE GUI_HEADERS_BROWSER "include/gui/browser/*.h")
 
 # Adiciona todos os arquivos às listas finais
-list(APPEND SOURCES ${GUI_SOURCES} ${GUI_SOURCES_PANELS} ${GUI_SOURCES_TRACKS})
-list(APPEND HEADERS ${GUI_HEADERS} ${GUI_HEADERS_PANELS} ${GUI_HEADERS_TRACKS})
+list(APPEND SOURCES
+    ${GUI_SOURCES}
+    ${GUI_SOURCES_PANELS}
+    ${GUI_SOURCES_TRACKS}
+    ${GUI_SOURCES_BROWSER}
+    ${CORE_SOURCES_TRACKS}
+)
+
+list(APPEND HEADERS
+    ${GUI_HEADERS}
+    ${GUI_HEADERS_PANELS}
+    ${GUI_HEADERS_TRACKS}
+    ${GUI_HEADERS_BROWSER}
+    ${CORE_HEADERS_TRACKS}
+)
 
 # Copia a pasta assets para o diretório de build
 add_custom_target(copy_assets ALL
