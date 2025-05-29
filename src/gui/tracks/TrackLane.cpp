@@ -6,7 +6,7 @@ TrackLane::TrackLane(TrackModel *model, QWidget *parent)
     : QWidget(parent), trackModel(model)
 {
     setMinimumHeight(60);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
 }
 
 void TrackLane::paintEvent(QPaintEvent *event)

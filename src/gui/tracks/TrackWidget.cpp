@@ -11,4 +11,11 @@ TrackWidget::TrackWidget(TrackModel *model, QWidget *parent)
     layout->addWidget(control);
     layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
+    //setMinimumHeight(100);
+    setFixedHeight(100);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
+    control->setMinimumHeight(100);
+    control->setMaximumHeight(100);
+    //lane->setMinimumHeight(80);
+    //lane->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
 }

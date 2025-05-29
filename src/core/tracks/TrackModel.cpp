@@ -1,7 +1,19 @@
 #include "core/tracks/TrackModel.h"
-#include "core/tracks/ClipModel.h"
 
 TrackModel::TrackModel(QObject *parent)
     : QObject(parent)
 {
+}
+
+int TrackModel::volume() const
+{
+    return m_volume;
+}
+
+void TrackModel::setVolume(int value)
+{
+    if (m_volume != value) {
+        m_volume = value;
+        emit volumeChanged(value);
+    }
 }

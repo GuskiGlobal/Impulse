@@ -5,7 +5,7 @@
 #include <QString>
 #include <QList>
 
-class ClipModel;
+#include "core/tracks/ClipModel.h"
 
 class TrackModel : public QObject {
     Q_OBJECT
@@ -20,8 +20,15 @@ public:
 
     QList<ClipModel*> clips;
 
+    int volume() const;
+    void setVolume(int value);
+
 signals:
     void clipAdded(ClipModel* clip);
+    void volumeChanged(int value);
+
+private:
+    int m_volume = 80;
 };
 
 #endif // TRACKMODEL_H

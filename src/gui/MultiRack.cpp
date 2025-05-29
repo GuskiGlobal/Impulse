@@ -1,11 +1,10 @@
 #include "gui/MultiRack.h"
-#include <QVBoxLayout>
 
 MultiRack::MultiRack(QWidget *parent)
     : QWidget(parent)
 {
     blankPanel = new QWidget();
-    mixerPanel = new QWidget();
+    mixerPanel = new MixerView(this);
     effectsPanel = new QWidget();
 
     rackStack = new QStackedWidget(this);
@@ -34,5 +33,20 @@ bool MultiRack::isShowingMixer() const {
 
 bool MultiRack::isShowingEffects() const {
     return rackStack->currentWidget() == effectsPanel;
+}
+
+void MultiRack::setTracks(const QList<TrackModel *> &tracks)
+{
+    if (mixerPanel) {
+        mixerPanel->setTracks(tracks);
+    }
+}
+
+
+void MultiRack::addTrackChannel(TrackModel* track)
+{
+    if (mixerPanel) {
+        mixerPanel->addChannel(track);
+    }
 }
 

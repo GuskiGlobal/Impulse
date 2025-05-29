@@ -11,9 +11,12 @@ class TrackView : public QWidget {
 
 public:
     explicit TrackView(QWidget *parent = nullptr);
+    void addTrackWidget(QWidget *widget);
+
+signals:
+    void addTrackRequested();
 
 private slots:
-    void addTrack();
 
 private:
     QVBoxLayout *mainLayout;

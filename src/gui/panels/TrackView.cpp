@@ -11,35 +11,33 @@ TrackView::TrackView(QWidget *parent)
     : QWidget(parent)
 {
     mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
     scrollArea = new QScrollArea(this);
     scrollArea->setWidgetResizable(true);
 
     trackContainer = new QWidget(scrollArea);
     trackLayout = new QVBoxLayout(trackContainer);
+    trackLayout->setContentsMargins(0, 0, 0, 0);
     trackContainer->setLayout(trackLayout);
     scrollArea->setWidget(trackContainer);
 
     mainLayout->addWidget(scrollArea);
 
     QPushButton *addTrackButton = new QPushButton("+ Adicionar Faixa", this);
-    connect(addTrackButton, &QPushButton::clicked, this, &TrackView::addTrack);
+    connect(addTrackButton, &QPushButton::clicked, this, &TrackView::addTrackRequested);
     mainLayout->addWidget(addTrackButton);
 
     setLayout(mainLayout);
 
-    // Adiciona faixas iniciais
-    for (int i = 0; i < 3; ++i) {
-        addTrack();
-    }
+    trackLayout->addStretch();
 }
 
-void TrackView::addTrack()
+void TrackView::addTrackWidget(QWidget *widget)
 {
-    auto *trackModel = new TrackModel(this);
-    trackModel->name = QString("Track %1").arg(trackLayout->count() + 1);
-
-    auto *trackWidget = new TrackWidget(trackModel, this);
-    trackLayout->addWidget(trackWidget);
+    if (trackLayout) {
+        int index = trackLayout->count() - 1;
+        trackLayout->insertWidget(index, widget);
+    }
 }
 

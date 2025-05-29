@@ -20,6 +20,8 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "include/*.h")
 file(GLOB_RECURSE GUI_SOURCES "src/gui/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS "include/gui/*.h")
+file(GLOB_RECURSE CORE_SOURCES "src/core/*.cpp")
+file(GLOB_RECURSE CORE_HEADERS "include/core/*.h")
 file(GLOB_RECURSE GUI_SOURCES_PANELS "src/gui/panels/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_PANELS "include/gui/panels/*.h")
 file(GLOB_RECURSE GUI_SOURCES_TRACKS "src/gui/tracks/*.cpp")
@@ -28,21 +30,27 @@ file(GLOB_RECURSE CORE_SOURCES_TRACKS "src/core/tracks/*.cpp")
 file(GLOB_RECURSE CORE_HEADERS_TRACKS "include/core/tracks/*.h")
 file(GLOB_RECURSE GUI_SOURCES_BROWSER "src/gui/browser/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_BROWSER "include/gui/browser/*.h")
+file(GLOB_RECURSE GUI_SOURCES_MIXER "src/gui/mixer/*.cpp")
+file(GLOB_RECURSE GUI_HEADERS_MIXER "include/gui/mixer/*.h")
 
 # Adiciona todos os arquivos às listas finais
 list(APPEND SOURCES
     ${GUI_SOURCES}
+    ${CORE_SOURCES}
     ${GUI_SOURCES_PANELS}
     ${GUI_SOURCES_TRACKS}
     ${GUI_SOURCES_BROWSER}
+    ${GUI_SOURCES_MIXER}
     ${CORE_SOURCES_TRACKS}
 )
 
 list(APPEND HEADERS
     ${GUI_HEADERS}
+    ${CORE_HEADERS}
     ${GUI_HEADERS_PANELS}
     ${GUI_HEADERS_TRACKS}
     ${GUI_HEADERS_BROWSER}
+    ${GUI_HEADERS_MIXER}
     ${CORE_HEADERS_TRACKS}
 )
 
