@@ -4,7 +4,7 @@
 #include "gui/ActionBar.h"
 #include "gui/MultiRack.h"
 #include "gui/panels/BrowserPanel.h"
-#include "gui/panels/TrackView.h"
+#include "gui/tracks/TrackView.h"
 #include "core/tracks/TrackModel.h"
 #include "gui/tracks/TrackWidget.h"
 #include "core/SessionController.h"

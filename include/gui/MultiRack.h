@@ -4,30 +4,28 @@
 #include <QWidget>
 #include <QStackedWidget>
 #include <QVBoxLayout>
-#include "gui/mixer/MixerView.h"
 
-class MultiRack : public QWidget
-{
+#include "gui/mixer/MixerView.h"
+#include "core/SessionController.h"
+
+class MultiRack : public QWidget {
     Q_OBJECT
 
 public:
     explicit MultiRack(QWidget *parent = nullptr);
-
-    void setTracks(const QList<TrackModel *> &tracks);
 
     void showMixer();
     void showEffects();
     bool isShowingMixer() const;
     bool isShowingEffects() const;
 
-    void addTrackChannel(TrackModel * track);
+    void bindSession(SessionController *session);
 
 private:
-    QWidget *blankPanel;
-    MixerView *mixerPanel;
-    QWidget *effectsPanel;
     QStackedWidget *rackStack;
+    QWidget *blankPanel;
+    QWidget *effectsPanel;
+    MixerView *mixerPanel;
 };
 
 #endif // MULTIRACK_H
-

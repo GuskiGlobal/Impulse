@@ -18,6 +18,7 @@ void MainWindow::setupUI() {
     addToolBar(Qt::BottomToolBarArea, actionBar);
 
     multiRack = new MultiRack(this);
+    multiRack->bindSession(sessionController);
     rackDock = new QDockWidget(this);
     rackDock->setWidget(multiRack);
     addDockWidget(Qt::BottomDockWidgetArea, rackDock);
@@ -53,7 +54,6 @@ void MainWindow::setupUI() {
     connect(sessionController, &SessionController::trackAdded, this, [=](TrackModel *track) {
         auto *trackWidget = new TrackWidget(track, this);
         trackView->addTrackWidget(trackWidget);
-        multiRack->addTrackChannel(track);
     });
 
     connect(trackView, &TrackView::addTrackRequested,

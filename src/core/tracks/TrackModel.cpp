@@ -17,3 +17,16 @@ void TrackModel::setVolume(int value)
         emit volumeChanged(value);
     }
 }
+
+QString TrackModel::name() const
+{
+    return m_name;
+}
+
+void TrackModel::setName(const QString &newName)
+{
+    if (m_name != newName) {
+        m_name = newName;
+        emit nameChanged(newName);
+    }
+}

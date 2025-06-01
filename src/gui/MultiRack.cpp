@@ -5,7 +5,7 @@ MultiRack::MultiRack(QWidget *parent)
 {
     blankPanel = new QWidget();
     mixerPanel = new MixerView(this);
-    effectsPanel = new QWidget();
+    effectsPanel = new QWidget(); // painel real futuramente
 
     rackStack = new QStackedWidget(this);
     rackStack->addWidget(blankPanel);
@@ -35,18 +35,10 @@ bool MultiRack::isShowingEffects() const {
     return rackStack->currentWidget() == effectsPanel;
 }
 
-void MultiRack::setTracks(const QList<TrackModel *> &tracks)
+void MultiRack::bindSession(SessionController *session)
 {
-    if (mixerPanel) {
-        mixerPanel->setTracks(tracks);
-    }
+    mixerPanel->bindToSession(session);
+
+    connect(mixerPanel, &MixerView::requestNewTrack,
+            session, &SessionController::addTrack);
 }
-
-
-void MultiRack::addTrackChannel(TrackModel* track)
-{
-    if (mixerPanel) {
-        mixerPanel->addChannel(track);
-    }
-}
-
