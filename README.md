@@ -17,7 +17,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/Impulse.git
+git clone https://github.com/GuskiGlobal/Impulse.git
 cd Impulse
 
 # Create a build folder
