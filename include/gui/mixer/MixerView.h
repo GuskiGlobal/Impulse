@@ -22,7 +22,9 @@ class MixerView : public QWidget {
 public:
     explicit MixerView(QWidget *parent = nullptr);
     void bindToSession(SessionController *session);
-
+    void getVolume(TrackModel *track, int &volume);
+    void setVolume(TrackModel *track, int volume);
+   
 signals:
     void requestNewTrack();
 

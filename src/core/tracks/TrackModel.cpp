@@ -5,28 +5,49 @@ TrackModel::TrackModel(QObject *parent)
 {
 }
 
+TrackModel::TrackModel(int id, QObject *parent)
+    : QObject(parent), track_id(id)
+{
+}
+
+TrackModel::TrackModel(const QString &name, int id, QObject *parent)
+    : QObject(parent), track_id(id), track_name(name)
+{
+}
+
+TrackModel::TrackModel(const QString &name, int id, int volume, QObject *parent)
+    : QObject(parent), track_id(id), track_volume(volume), track_name(name)
+{
+}
+
 int TrackModel::volume() const
 {
-    return m_volume;
+    return track_volume;
 }
 
 void TrackModel::setVolume(int value)
 {
-    if (m_volume != value) {
-        m_volume = value;
+    if (track_volume != value) {
+        track_volume = value;
         emit volumeChanged(value);
     }
 }
 
 QString TrackModel::name() const
 {
-    return m_name;
+    return track_name;
 }
 
 void TrackModel::setName(const QString &newName)
 {
-    if (m_name != newName) {
-        m_name = newName;
+    if (track_name != newName) {
+        track_name = newName;
         emit nameChanged(newName);
     }
 }
+
+//int TrackModel::id() const
+//{
+//    return track_id;
+//}
+

@@ -30,6 +30,8 @@ file(GLOB_RECURSE CORE_SOURCES_TRACKS "src/core/tracks/*.cpp")
 file(GLOB_RECURSE CORE_HEADERS_TRACKS "include/core/tracks/*.h")
 file(GLOB_RECURSE GUI_SOURCES_BROWSER "src/gui/browser/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_BROWSER "include/gui/browser/*.h")
+file(GLOB_RECURSE CORE_SOURCES_MIXER "src/core/mixer/*.cpp")
+file(GLOB_RECURSE CORE_HEADERS_MIXER "include/core/mixer/*.h")
 file(GLOB_RECURSE GUI_SOURCES_MIXER "src/gui/mixer/*.cpp")
 file(GLOB_RECURSE GUI_HEADERS_MIXER "include/gui/mixer/*.h")
 
@@ -42,6 +44,7 @@ list(APPEND SOURCES
     ${GUI_SOURCES_BROWSER}
     ${GUI_SOURCES_MIXER}
     ${CORE_SOURCES_TRACKS}
+    ${CORE_SOURCES_MIXER}
 )
 
 list(APPEND HEADERS
@@ -52,6 +55,7 @@ list(APPEND HEADERS
     ${GUI_HEADERS_BROWSER}
     ${GUI_HEADERS_MIXER}
     ${CORE_HEADERS_TRACKS}
+    ${CORE_HEADERS_MIXER}
 )
 
 # Copia a pasta assets para o diretório de build

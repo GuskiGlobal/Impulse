@@ -16,13 +16,13 @@ MixerView::MixerView(QWidget *parent)
     layout = new QHBoxLayout(containerWidget);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(4);
-    layout->addStretch();
+    //layout->addStretch();
 
     containerWidget->setLayout(layout);
     scrollArea->setWidget(containerWidget);
     mainLayout->addWidget(scrollArea);
 
-    //createAddButton();
+    createAddButton();
 
     setLayout(mainLayout);
 
@@ -34,21 +34,21 @@ void MixerView::createAddButton()
     addChannelButton = new QPushButton("+", this);
     addChannelButton->setFixedSize(30, 100);
     connect(addChannelButton, &QPushButton::clicked, this, [=]() {
-        emit requestNewTrack(); // SessionController escuta e cria nova faixa
+        emit requestNewTrack(); 
     });
     layout->addWidget(addChannelButton);
+    layout->addStretch(); 
 }
 
 void MixerView::bindToSession(SessionController *sessionController)
 {
     session = sessionController;
 
-    // conecta ao sinal de faixa criada
+
     connect(session, &SessionController::trackAdded, this, [=](TrackModel *track) {
         addChannel(track);
     });
 
-    // inicializa com as faixas já existentes
     for (TrackModel *track : session->getTracks()) {
         addChannel(track);
     }
@@ -56,7 +56,28 @@ void MixerView::bindToSession(SessionController *sessionController)
 
 void MixerView::addChannel(TrackModel *track)
 {
-    ChannelWidget *channel = new ChannelWidget(track->name(), this);
-    layout->insertWidget(layout->count() - 1, channel); // antes do botão "+"
+    ChannelModel *channelModel = new ChannelModel(track->id(), 80, 0.0f, track);
+    ChannelWidget *channel = new ChannelWidget(channelModel, this);
+    layout->insertWidget(layout->count() - 2, channel);
     channelWidgets.append(channel);
+}
+
+void MixerView::getVolume(TrackModel *track, int &volume)
+{
+    for (ChannelWidget *channel : channelWidgets) {
+        if (channel->trackId() == track->id()) {
+            volume = channel->volume();
+            return;
+        }
+    }
+    volume = 0; 
+}
+void MixerView::setVolume(TrackModel *track, int volume)
+{
+    for (ChannelWidget *channel : channelWidgets) {
+        if (channel->trackId() == track->id()) {
+            channel->setVolume(volume);
+            return;
+        }
+    }
 }

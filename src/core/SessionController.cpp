@@ -14,7 +14,7 @@ void SessionController::addTrack() {
     track->setName(QString("Track %1").arg(trackList.size() + 1));
     trackList.append(track);
     trackVolumes[track] = 1.0f; 
-    emit trackAdded(track); // <- usado pelo MixerView
+    emit trackAdded(track); 
 }
 
 float SessionController::getVolume(TrackModel *track) const {
@@ -24,7 +24,7 @@ float SessionController::getVolume(TrackModel *track) const {
 void SessionController::setVolume(TrackModel *track, float value) {
     if (trackVolumes.contains(track)) {
         trackVolumes[track] = value;
-        emit volumeChanged(track, value); // <- pode ser usado para mover slider
+        emit volumeChanged(track, value); 
     }
 }
 
